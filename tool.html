@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>layui</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="./layui/css/layui.css"  media="all">
+	<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+	<script src="./layui/layui.js" charset="utf-8"></script>
+	<script src="./js/jquery-3.3.1.js" charset="utf-8"></script>
+	<style type="text/css">
+	body{
+		padding: 20px;
+	}
+</style>
+</head>
+<body style="height: 100%;position: fixed;width: 100%;">
+<form>
+	<blockquote class="layui-elem-quote layui-text">
+		多选模糊查询下拉框  源码及说明：https://github.com/miracleren/selectGrid
+	</blockquote>
+	<div class="layui-form-item">
+		<label class="layui-form-label">选择下拉框</label>
+		<div class="layui-input-block">
+			<input class="layui-input" name="selectGrid" id="selectGrid" lay-verify="required" placeholder="请选择">
+		</div>
+	</div>
+	<!-- 选择下拉框初始化 -->
+	<script src="./js/selectGrid.js" charset="utf-8"></script>
+	<script src="./js/data.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#selectGrid").selectGrid({
+				width: '500px',
+				height:'500px',
+				key:'id',
+				filter:true,
+				multiple:true,
+				table: {
+					data: userdata,
+					cols: [[
+					{field:'username', title:'用户名', width:120 },
+					{field:'sex', title:'性别', width:80 },
+					{field:'city', title:'城市'},
+					]]
+				}
+			});
+		});
+	</script>
+</form>
+</body>
+</html>
