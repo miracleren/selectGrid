@@ -35,3 +35,6 @@ $("#selectGrid").selectGrid({
   }
 });
 ```
+
+## 运行效果如下
+![image](https://github.com/miracleren/selectGrid/blob/master/pic/pic1.png)
