@@ -45,6 +45,12 @@
 					{field:'sex', title:'性别', width:80 },
 					{field:'city', title:'城市'},
 					]]
+				},
+				done:function(){
+					console.log('selectGrid is ok!');
+				},
+				selected:function(val){
+					console.log('selected:'+val);
 				}
 			});
 		});

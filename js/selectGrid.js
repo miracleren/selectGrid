@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////
 //多选下拉表
-//v 1.0
+//v 1.1
 //creat by miracleren 
-//creat date 2018 09 27
+//creat date 2019 05 30
 //url https://github.com/miracleren/selectGrid
 //说明：运行基础 jquery库 layui框架 
 //////////////////////////////////////////////
@@ -18,6 +18,8 @@
             url: "",
             cols: [[]]
         },
+        done:function(){},
+        selected:function(){}
         // data:[]
     };
     var grid;
@@ -97,16 +99,18 @@
             if (defaults.multiple == true) {
                 table.on('checkbox(select_grid)', function(obj){
                   showMsg();
+                  defaults.selected(obj.data[defaults.key]);
               });}
                 else{
                     table.on('radio(select_grid)', function(obj){
-                        console.log(obj.checked); 
+                        //console.log(obj.checked); 
                         for(var s in obj.data){
                             if(s != "id"){
                                 $(defaults.id).val(obj.data[s]);
                                 break;
                             }
                         }
+                        defaults.selected(obj.data[defaults.key]);
                     });
                 }
             });
@@ -126,6 +130,8 @@
             else
                 box.setShow();
         });
+
+        defaults.done();
     };
 
     //显示内容
