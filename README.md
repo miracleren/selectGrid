@@ -1,8 +1,11 @@
 # selectGrid
 多选、单选模糊查询下拉框
 
-该控件是基于LayUI框架开及jquery库开发的，所以使用前，必需引入这些库。
+该控件是基于LayUI框架开及jquery库开发的，所以使用前，必需引入这些库（可能部分layui版本会有问题）。
 控件支持快速模糊查询，同时所选的内容会排在前面，实现多选模糊查询的功能。
+
+--模糊查询只会把匹配的结果排在前面，不会过滤。
+--选的行，查询后或重新弹出，都会初始化排在最前面。
 
 # 初始化方法
 
@@ -32,6 +35,12 @@ $("#selectGrid").selectGrid({
     {field:'sex', title:'性别', width:80 },
     {field:'city', title:'城市'},
     ]]
+  },
+  done:function(){
+    console.log('selectGrid is ok!');
+  },
+  selected:function(val){
+    console.log('selected:'+val);
   }
 });
 ```
